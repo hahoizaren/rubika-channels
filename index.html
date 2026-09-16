@@ -1,341 +1,502 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-
+<!DOCTYPE html><html lang="fa" dir="rtl">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>کانال‌یاب روبیکا</title><style>
 
-    <meta charset="UTF-8">
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:
+        radial-gradient(circle at top,#350006 0,#120003 45%,#070001 100%);
+    color:white;
+    min-height:100vh;
+}
 
-    <title>کانال‌یاب روبیکا</title>
+/* ===== هدر ===== */
 
-    <style>
+.header{
+    padding:28px 18px 22px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+.header::before{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:#ff003c;
+    filter:blur(100px);
+    opacity:.18;
+    top:-120px;
+    left:50%;
+    transform:translateX(-50%);
+}
 
-        body {
-            margin: 0;
-            padding: 20px 15px 40px;
+.logo{
+    width:78px;
+    height:78px;
+    border-radius:24px;
+    object-fit:cover;
+    border:2px solid rgba(255,255,255,.15);
+    box-shadow:0 0 30px rgba(255,0,60,.35);
+    margin-bottom:12px;
+}
 
-            font-family: Tahoma, Arial, sans-serif;
+.header h1{
+    font-size:25px;
+    margin-bottom:8px;
+}
 
-            background:
-                radial-gradient(circle at top, #35101f 0%, #101010 45%, #080808 100%);
+.header p{
+    color:#c7aeb2;
+    font-size:13px;
+}
 
-            color: white;
+/* ===== محتوای اصلی ===== */
 
-            min-height: 100vh;
-        }
+.container{
+    width:100%;
+    max-width:650px;
+    margin:auto;
+    padding:0 14px 40px;
+}
 
-        .header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
+/* ===== عنوان بخش ===== */
 
-        .header h1 {
-            margin: 10px 0;
-            font-size: 28px;
-        }
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:18px 4px 12px;
+}
 
-        .header p {
-            color: #aaa;
-            margin: 0;
-            font-size: 14px;
-        }
+.section-title h2{
+    font-size:17px;
+}
 
-        #loading {
-            text-align: center;
-            padding: 30px;
-            color: #aaa;
-        }
+.section-title span{
+    font-size:20px;
+}
 
-        #error {
-            text-align: center;
-            color: #ff6b81;
-            padding: 20px;
-        }
+/* ===== جایگاه ویژه ===== */
 
-        #channels {
-            max-width: 500px;
-            margin: auto;
-        }
+.special{
+    position:relative;
+    overflow:hidden;
+    padding:18px;
+    border-radius:24px;
 
-        .channel {
+    background:
+        linear-gradient(135deg,
+        rgba(255,0,55,.20),
+        rgba(80,0,15,.42));
 
-            background: rgba(35, 35, 35, 0.9);
+    border:1px solid rgba(255,60,90,.35);
 
-            border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 0 35px rgba(255,0,50,.12),
+        inset 0 0 25px rgba(255,0,50,.04);
 
-            border-radius: 22px;
+    margin-bottom:20px;
+}
 
-            padding: 18px;
+.special::before{
+    content:"";
+    position:absolute;
+    width:160px;
+    height:160px;
+    background:#ff174d;
+    filter:blur(80px);
+    opacity:.18;
+    top:-90px;
+    left:-70px;
+}
 
-            margin-bottom: 18px;
+.special-badge{
+    display:inline-block;
+    background:linear-gradient(135deg,#ff174d,#ff0033);
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:11px;
+    margin-bottom:13px;
+    box-shadow:0 5px 20px rgba(255,0,50,.25);
+}
 
-            text-align: center;
+.special-content{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    position:relative;
+    z-index:2;
+}
 
-            box-shadow:
-                0 10px 30px rgba(0, 0, 0, 0.35);
+.special img{
+    width:82px;
+    height:82px;
+    border-radius:20px;
+    object-fit:cover;
+    border:2px solid rgba(255,255,255,.15);
+}
 
-            backdrop-filter: blur(10px);
-        }
+.special-info{
+    flex:1;
+}
 
-        .channel img {
+.special-info h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
 
-            width: 110px;
-            height: 110px;
+.special-info p{
+    color:#d5bfc3;
+    font-size:12px;
+    line-height:1.8;
+}
 
-            object-fit: cover;
+/* ===== دکمه ===== */
 
-            border-radius: 25px;
+.join-btn{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color:white;
 
-            display: block;
+    margin-top:15px;
+    padding:11px;
 
-            margin: 0 auto 14px;
+    border-radius:14px;
 
-            border: 2px solid rgba(255, 255, 255, 0.1);
-        }
+    background:linear-gradient(135deg,#ff174d,#d50035);
 
-        .channel h2 {
+    font-size:13px;
+    font-weight:bold;
 
-            margin: 8px 0 16px;
+    box-shadow:0 8px 20px rgba(255,0,50,.20);
 
-            font-size: 19px;
-        }
+    transition:.2s;
+}
 
-        .channel button {
+.join-btn:active{
+    transform:scale(.97);
+}
 
-            width: 100%;
+/* ===== کانال‌های عادی ===== */
 
-            border: none;
+.channel-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
 
-            border-radius: 14px;
+.channel{
+    display:flex;
+    align-items:center;
+    gap:13px;
 
-            padding: 13px;
+    padding:13px;
 
-            background: linear-gradient(
-                135deg,
-                #e91e63,
-                #ff416c
-            );
+    border-radius:20px;
 
-            color: white;
+    background:rgba(255,255,255,.045);
 
-            font-size: 16px;
+    border:1px solid rgba(255,255,255,.07);
 
-            font-family: inherit;
+    backdrop-filter:blur(12px);
 
-            cursor: pointer;
+    transition:.2s;
+}
 
-            box-shadow:
-                0 7px 20px rgba(233, 30, 99, 0.25);
-        }
+.channel:active{
+    transform:scale(.98);
+}
 
-        .channel button:active {
+.channel img{
+    width:65px;
+    height:65px;
+    border-radius:17px;
+    object-fit:cover;
 
-            transform: scale(0.97);
+    border:1px solid rgba(255,255,255,.12);
+}
 
-        }
+.channel-info{
+    flex:1;
+    min-width:0;
+}
 
-        .footer {
+.channel-info h3{
+    font-size:14px;
+    margin-bottom:6px;
 
-            text-align: center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
 
-            color: #777;
+.channel-info p{
+    font-size:11px;
+    color:#a99599;
 
-            font-size: 12px;
+    line-height:1.6;
 
-            margin-top: 30px;
-        }
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
 
-    </style>
+.channel-btn{
+    text-decoration:none;
+    color:white;
 
-</head>
+    background:rgba(255,0,55,.14);
 
+    border:1px solid rgba(255,0,55,.25);
 
-<body>
+    padding:9px 10px;
 
+    border-radius:12px;
 
-    <div class="header">
+    font-size:11px;
 
-        <h1>📱 کانال‌یاب روبیکا</h1>
+    white-space:nowrap;
+}
 
+/* ===== فوتر ===== */
+
+.footer{
+    text-align:center;
+    padding:28px 10px 15px;
+
+    color:#75666a;
+
+    font-size:10px;
+}
+
+.footer span{
+    color:#ff3159;
+}
+
+/* ===== موبایل خیلی کوچک ===== */
+
+@media(max-width:380px){
+
+    .channel{
+        gap:9px;
+        padding:10px;
+    }
+
+    .channel img{
+        width:57px;
+        height:57px;
+    }
+
+    .channel-btn{
+        padding:8px;
+        font-size:10px;
+    }
+
+    .special-content{
+        gap:10px;
+    }
+
+    .special img{
+        width:70px;
+        height:70px;
+    }
+
+}
+
+</style></head><body><!-- ================================================= --><!-- هدر سایت --><!-- ================================================= --><header class="header"><!-- اگر لوگو داری، اسم فایل لوگو را اینجا تغییر بده -->
+<img class="logo"
+     src="logo.png"
+     alt="کانال‌یاب روبیکا">
+
+<h1>کانال‌یاب روبیکا</h1>
+
+<p>
+    کانال‌های جذاب روبیکا را اینجا پیدا کنید
+</p>
+
+</header><main class="container"><!-- ================================================= --><!-- جایگاه ویژه --><!-- ================================================= --><div class="section-title">
+    <span>⭐</span>
+    <h2>جایگاه ویژه</h2>
+</div><div class="special"><div class="special-badge">
+    ⭐ کانال ویژه
+</div>
+
+<div class="special-content">
+
+    <!-- عکس جایگاه ویژه -->
+    <img
+        src="channel1.jpg"
+        alt="کانال ویژه">
+
+    <div class="special-info">
+
+        <!-- نام کانال -->
+        <h3>
+            کانال ویژه روبیکا
+        </h3>
+
+        <!-- توضیحات -->
         <p>
-            کانال‌های منتخب روبیکا
+            معرفی کانال شما در جایگاه ویژه سایت
         </p>
 
     </div>
 
+</div>
 
-    <div id="loading">
 
-        در حال دریافت کانال‌ها...
+<!-- لینک کانال -->
+<a
+    class="join-btn"
+    href="https://rubika.ir/"
+    target="_blank">
+
+    ورود به کانال 🚀
+
+</a>
+
+</div><!-- ================================================= --><!-- کانال‌های عادی --><!-- ================================================= --><div class="section-title">
+    <span>📢</span>
+    <h2>کانال‌های روبیکا</h2>
+</div><div class="channel-list"><!-- ================= کانال ۱ ================= -->
+
+<div class="channel">
+
+    <img
+        src="channel2.jpg"
+        alt="کانال">
+
+    <div class="channel-info">
+
+        <h3>
+            کانال اول
+        </h3>
+
+        <p>
+            توضیحات کوتاه درباره کانال
+        </p>
 
     </div>
 
+    <a
+        class="channel-btn"
+        href="https://rubika.ir/"
+        target="_blank">
 
-    <div id="error"></div>
+        ورود
+
+    </a>
+
+</div>
 
 
-    <div id="channels"></div>
+<!-- ================= کانال ۲ ================= -->
 
+<div class="channel">
 
-    <div class="footer">
+    <img
+        src="channel3.jpg"
+        alt="کانال">
 
-        کانال‌یاب روبیکا
+    <div class="channel-info">
+
+        <h3>
+            کانال دوم
+        </h3>
+
+        <p>
+            توضیحات کوتاه درباره کانال
+        </p>
 
     </div>
 
+    <a
+        class="channel-btn"
+        href="https://rubika.ir/"
+        target="_blank">
 
+        ورود
 
-<script>
+    </a>
 
+</div>
 
-    // دریافت اطلاعات کانال‌ها از data.json
 
-    fetch("data.json")
+<!-- ================= کانال ۳ ================= -->
 
-        .then(function(response) {
+<div class="channel">
 
-            if (!response.ok) {
+    <img
+        src="channel4.jpg"
+        alt="کانال">
 
-                throw new Error(
-                    "خطا در دریافت data.json"
-                );
+    <div class="channel-info">
 
-            }
+        <h3>
+            کانال سوم
+        </h3>
 
-            return response.json();
+        <p>
+            توضیحات کوتاه درباره کانال
+        </p>
 
-        })
+    </div>
 
+    <a
+        class="channel-btn"
+        href="https://rubika.ir/"
+        target="_blank">
 
-        .then(function(channels) {
+        ورود
 
+    </a>
 
-            document.getElementById("loading")
-                .style.display = "none";
+</div>
 
 
-            var container =
-                document.getElementById("channels");
+<!-- ================= کانال ۴ ================= -->
 
+<div class="channel">
 
-            // پاک کردن لیست قبلی
+    <img
+        src="channel5.jpg"
+        alt="کانال">
 
-            container.innerHTML = "";
+    <div class="channel-info">
 
+        <h3>
+            کانال چهارم
+        </h3>
 
-            // ساخت کارت برای هر کانال
+        <p>
+            توضیحات کوتاه درباره کانال
+        </p>
 
-            channels.forEach(function(channel) {
+    </div>
 
+    <a
+        class="channel-btn"
+        href="https://rubika.ir/"
+        target="_blank">
 
-                var card =
-                    document.createElement("div");
+        ورود
 
+    </a>
 
-                card.className = "channel";
+</div>
 
+</div><!-- ================================================= --><!-- فوتر --><!-- ================================================= --><footer class="footer">ساخته شده برای معرفی کانال‌های
+<span>روبیکا</span>
 
-                // ساخت عکس
-
-                var image =
-                    document.createElement("img");
-
-                image.src = channel.image;
-
-                image.alt = channel.name;
-
-
-                // اگر عکس لود نشد
-
-                image.onerror = function() {
-
-                    this.style.display = "none";
-
-                };
-
-
-                // نام کانال
-
-                var title =
-                    document.createElement("h2");
-
-                title.innerText =
-                    channel.name;
-
-
-                // دکمه
-
-                var button =
-                    document.createElement("button");
-
-
-                button.innerText =
-                    "ورود به کانال 🚀";
-
-
-                button.onclick = function() {
-
-                    openChannel(channel.link);
-
-                };
-
-
-                // اضافه کردن به کارت
-
-                card.appendChild(image);
-
-                card.appendChild(title);
-
-                card.appendChild(button);
-
-
-                // اضافه کردن کارت به صفحه
-
-                container.appendChild(card);
-
-
-            });
-
-
-        })
-
-
-        .catch(function(error) {
-
-
-            document.getElementById("loading")
-                .style.display = "none";
-
-
-            document.getElementById("error")
-                .innerText =
-                "❌ دریافت اطلاعات کانال‌ها انجام نشد";
-
-
-            console.log(error);
-
-        });
-
-
-
-    // باز کردن لینک روبیکا
-
-    function openChannel(link) {
-
-        window.location.href = link;
-
-    }
-
-
-</script>
-
-
-</body>
-
+</footer></main></body>
 </html>
